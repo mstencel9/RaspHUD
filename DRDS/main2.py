@@ -677,6 +677,7 @@ class MainApp(App):
             except:
                 print("Gear Calculation Failed")
         print("RPM Image Path:", self.RPM_Image)
+        print("Timing Adv: ", self.TimingAdv)
 
     def updateOBDdata(self, *args):
         if OBD.Connected and developermode == 0:
@@ -798,6 +799,7 @@ class MainApp(App):
         if OBD.enable.RPM and 0 <= int(round(self.RPM/OBD.gauge.persegment.RPM)) <= 32:
             self.RPM_Image = str('data/gauges/normal/s2k_'+(str(int(round(self.RPM/OBD.gauge.persegment.RPM))))+'.png')
             print("RPM Image Path:", self.RPM_Image)
+            print("Timing Adv: ", self.TimingAdv)
 
 
 
