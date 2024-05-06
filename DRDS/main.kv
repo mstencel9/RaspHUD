@@ -52,7 +52,7 @@ AnchorLayout:
 
                 # Shift Warning 
 		Label:
-		    text: 'OK' if len(str(app.RPM)) < 4 else ('SHIFT NOW!' if str(app.RPM)[:2] == '59' or str(app.RPM)[0] == '6' else 'CLOSE' if str(app.RPM)[:1] == '5' else 'NORMAL')
+		    text: 'SHIFT NOW!' if str(app.RPM)[:2] == '59' or str(app.RPM)[0] == '6' else 'READY' if str(app.RPM)[:1] == '5' else 'OK'
 		    font_size: 150
 		    color: [0, 1, 0, 1] if len(str(app.RPM)) < 4 else ([1, 0, 0, 1] if str(app.RPM)[:2] == '59' or str(app.RPM)[0] == '6' else [1, 1, 0, 1] if str(app.RPM)[:1] == '5' else [0, 1, 0, 1])
 		    size_hint: None, None
