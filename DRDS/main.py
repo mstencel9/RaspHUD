@@ -1,4 +1,8 @@
 import kivy
+from kivy.config import Config
+
+# Set the application to open in fullscreen
+Config.set('graphics', 'fullscreen', 'auto')
 #kivy.require('1.11.0')
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
