@@ -15,6 +15,7 @@ import time
 import os
 import math
 
+from gauge_screens import Gauge4Screen
 from kivy.lang import Builder
 Builder.load_file("main2.kv")
 
