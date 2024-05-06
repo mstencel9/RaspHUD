@@ -544,26 +544,35 @@ if developermode == 0:
 
     if autobrightness == 2:  # start on dim every time
         sys().setbrightness(15)
+      
+class YourAppClass(App):
+    def build(self):
+        # Your other setup code
+        self.setup_rpm_gauge()
 
+    def setup_rpm_gauge(self):
+        rpm_gauge = self.root.ids.sm.get_screen('gauge4').ids.rpm_gauge
+        for i in range(9):
+            color = (0.2, 0.2, 0.2, 1) if i < 4 else (0.2, 0.2, 0, 1) if i < 7 else (0.2, 0, 0, 1)
+            label = Label(size_hint_x=None, width=50, background_color=color)
+            rpm_gauge.add_widget(label)
 
-rpm_thresholds = [5900, 6000, 6100]  # Simplified example
+    def update_rpm_gauge(self, current_rpm):
+        rpm_gauge = self.root.ids.sm.get_screen('gauge4').ids.rpm_gauge
+        thresholds = [5900, 6000, 6100]  # Define thresholds for changing colors
+        colors = [(0, 1, 0, 1), (1, 1, 0, 1), (1, 0, 0, 1)]  # Green, Yellow, Red
+        for index, label in enumerate(rpm_gauge.children[::-1]):  # Reverse to match left-to-right order
+            active = False
+            if index < 4:
+                active = current_rpm >= 5900
+            elif index < 7:
+                active = current_rpm >= 6000
+            else:
+                active = current_rpm >= 6100
+            base_color = colors[0] if index < 4 else colors[1] if index < 7 else colors[2]
+            dark_color = (0.2, 0.2, 0.2, 1) if index < 4 else (0.2, 0.2, 0, 1) if index < 7 else (0.2, 0, 0, 1)
+            label.background_color = base_color if active else dark_color
 
-class RPMWidget(Widget):
-    def update_rpm(self, rpm):
-        with self.canvas:
-            self.canvas.clear()
-            # Set color based on RPM
-            for i in range(9):
-                if rpm > rpm_thresholds[min(i, len(rpm_thresholds)-1)]:
-                    if i < 4:
-                        Color(0, 1, 0, 1)  # Green
-                    elif i < 7:
-                        Color(1, 1, 0, 1)  # Yellow
-                    else:
-                        Color(1, 0, 0, 1)  # Red
-                else:
-                    Color(0.2, 0.2, 0.2, 1)  # Darker color for 'off'
-                Rectangle(pos=(i*55, 0), size=(50, 50))  # Adjust position and size as needed
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Define Kivy Classes
 #MAIN SCREEN CLASSES
