@@ -1,13 +1,9 @@
-#:import Gauge4Screen gauge_screens.Gauge4Screen
-
 #:import Animation kivy.animation.Animation
 #:import MDProgressBar kivymd.progressbar.MDProgressBar
 #:import MDSlider kivymd.slider.MDSlider
 #:import MDList kivymd.list.MDList
 #:import MDButton kivymd.button.MDRaisedButton
 #:import math math
-
-#V1.2.2
 
 # Set Global Font Types to save typing later
 #:set GaugeFont "data/fonts/Eurostile LT Std Medium.ttf"
@@ -69,4 +65,22 @@ AnchorLayout:
                     font_hinting: None
                     pos: 550, 262
                     font_name: GaugeFont
-            
+                Image:
+                    source: "data/gauges/S2KOutline_DoubleWhite.png"
+                   # opacity: 1 if app.RPM_Enable else 0
+                    pos: 550, 270  # Adjust position as needed
+                    size_hint: None, None
+                    height: 150
+                    width: 250
+
+                # RPM Gauge Value Label
+                Label:
+                    text: str(app.RPM) + " RPM"
+                    font_size: 70
+                    size_hint: None, None
+                    height: 150
+                    width: 250
+                    halign: 'center'
+                    valign: 'middle'
+                    pos: 270, 230  # Adjust position as needed
+                    font_name: GaugeFont
