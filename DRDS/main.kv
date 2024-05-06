@@ -50,11 +50,11 @@ AnchorLayout:
                     pos: 350, 140  # Positioned centrally
                     font_name: GaugeFont
 
-                # Shift Warning Label
+                # Shift Warning 
                 Label:
-                    text: "SHIFT NOW!" if app.RPM >= 5900 else "OK"
+                    text: 'SHIFT NOW!' if str(app.RPM)[:2] == '59' else 'OK'
                     font_size: 50
-                    color: [1, 0, 0, 1] if app.RPM >= 5900 else [0, 0, 0, 0]  # Red text when to shift, invisible otherwise
+                    color: [1, 0, 0, 1] if str(app.RPM)[:2] == '59' else [0, 1, 0, 1]  # Red when shift, green otherwise
                     size_hint: None, None
                     width: 200
                     height: 50
