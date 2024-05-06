@@ -25,22 +25,22 @@ AnchorLayout:
                 Label:
                     text: str(math.floor(app.Speed))
                     font_size: 80
-                    pos: 250, -183  # Adjusted to be on the left
+                    pos: 150, -183  # Adjusted to be on the left
                     font_name: GaugeFont
                 Label:
                     text: app.SpeedUnit
                     font_size: 15
-                    pos: 300, -200  # Close to MPH label
+                    pos: 200, -200  # Close to MPH label
                     font_name: GaugeFont
                 Label:
                     text: str(app.RPM)
                     font_size: 80
-                    pos: 50, -183  # Below MPH information
+                    pos: -150, -183  # Below MPH information
                     font_name: GaugeFont
                 Label:
                     text: "RPM"
                     font_size: 15
-                    pos: 100, -200  # Close to RPM label
+                    pos: -200, -200  # Close to RPM label
                     font_name: GaugeFont
 
                 # Gear Display in the Middle
