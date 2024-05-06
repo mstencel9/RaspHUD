@@ -237,27 +237,6 @@ AnchorLayout:
                     pos: 550, 230
                     font_name: GaugeFont
 
-                        # RPM Gauge Image
-                Image:
-                    source: "data/gauges/S2K_Coolant.png"
-                    opacity: 1 if app.RPM_Enable else 0
-                    pos: 825, 350  # Adjust position as needed
-                    size_hint: None, None
-                    height: 150
-                    width: 250
-
-                # RPM Gauge Value Label
-                Label:
-                    text: str(app.RPM) + " RPM"
-                    font_size: 70
-                    size_hint: None, None
-                    height: 150
-                    width: 250
-                    halign: 'center'
-                    valign: 'middle'
-                    pos: 825, 230  # Adjust position as needed
-                    font_name: GaugeFont
-
         Gauge3Screen:
             name: "gauge3"
             FloatLayout:
