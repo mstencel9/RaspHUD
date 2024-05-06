@@ -14,7 +14,9 @@ import socket
 import time
 import os
 import math
-import sys
+
+from kivy.lang import Builder
+Builder.load_file("main2.kv")
 
 # Program Info
 # ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -577,7 +579,6 @@ class MainApp(App):
     def build(self):
         Clock.schedule_interval(self.updatevariables, .1)
         Clock.schedule_interval(self.updateOBDdata, .01)
-        self.load_kv('rpm_display.kv')
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
     theme_cls = ThemeManager()
