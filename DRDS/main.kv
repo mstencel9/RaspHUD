@@ -63,28 +63,24 @@ AnchorLayout:
                     pos: 250, 300  
                     font_name: GaugeFont
 
-	AnchorLayout: 
-	    FloatLayout:
-		    Button:
-	            id: dock_gauge4
-	            background_normal: 'data/elements/Dock/DockPill.png'
-	            background_down: 'data/elements/Dock/DockPill_pressed.png'
-	            opacity: 1
-	            pos: 371, Dock_y0
-	            size_hint: None, None
-	            height: 70
-	            width: 101
-	            on_press:
-	                sm.current = 'gauge4'
-	                app.OBDOFF()
-	                app.OBDEnabler("Speed",1)
-	                app.OBDEnabler("RPM",1)
-	                app.OBDEnabler("Gear",1)
-	                app.save()
-	            Label:
-	                text: "start"
-	                text_size: 101, 70
-	                pos: -200, -400  
-	                font_size: 28
-	                font_name: ButtonFont
-	                pos: self.parent.center_x - 50, self.parent.center_y - 53
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        Button:
+            id: dock_gauge4
+            background_normal: 'data/elements/Dock/DockPill.png'
+            background_down: 'data/elements/Dock/DockPill_pressed.png'
+            size_hint: None, None
+            height: 70
+            width: 101
+            on_press:
+                sm.current = 'gauge4'
+                app.OBDOFF()
+                app.OBDEnabler("Speed", 1)
+                app.OBDEnabler("RPM", 1)
+                app.OBDEnabler("Gear", 1)
+                app.save()
+            Label:
+                text: "start"
+                font_size: 28
+                font_name: ButtonFont
