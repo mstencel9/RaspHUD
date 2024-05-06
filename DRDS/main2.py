@@ -559,23 +559,23 @@ if developermode == 0:
 #    pass
 class Gauge4Screen(Screen):
     pass
-class MaxScreen(Screen):
-    pass
-class InfoScreen(Screen):
-    def on_enter(self):
-        sys.getsysteminfo = True
-    def on_pre_leave(self):
-        sys.getsysteminfo = False
-class SettingsScreen(Screen):
-    pass
-class TempSettingsScreen(Screen):
-    pass
-class FuelSettingsScreen(Screen):
-    pass
-class SpeedSettingsScreen(Screen):
-    pass
-class DTCScreen(Screen):
-    pass
+#class MaxScreen(Screen):
+#    pass
+#class InfoScreen(Screen):
+#    def on_enter(self):
+#        sys.getsysteminfo = True
+#    def on_pre_leave(self):
+#        sys.getsysteminfo = False
+#class SettingsScreen(Screen):
+#    pass
+#class TempSettingsScreen(Screen):
+#    pass
+#class FuelSettingsScreen(Screen):
+#    pass
+#class SpeedSettingsScreen(Screen):
+#    pass
+#class DTCScreen(Screen):
+#    pass
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Main App Class
