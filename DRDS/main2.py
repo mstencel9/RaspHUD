@@ -310,6 +310,7 @@ class OBD:
             ThrottlePos = "data/gauges/normal/S2K_0.png"
             Load = "data/gauges/normal/S2K_0.png"
             TimingAdv = "data/gauges/normal/S2K_0.png"
+            RPM = "data/gauges/normal/S2K_0.png"
 
         class persegment:
             # Max values for each S2K Bar Gauge
@@ -333,6 +334,7 @@ class OBD:
             ThrottlePos = round(ThrottlePos_max / 32.0, 2)
             Load = round(Load_max / 32.0, 2)
             TimingAdv = round(TimingAdv_max / 32.0, 2)
+            RPM = TimingAdv = round(TimingAdv_max / 32.0, 2)
 
     # Thread functions - to be called later
     # These will run in the background and will not block the GUI
@@ -581,7 +583,7 @@ class MainApp(App):
     def build(self):
         Clock.schedule_interval(self.updatevariables, .1)
         Clock.schedule_interval(self.updateOBDdata, .01)
-        return Builder.load_file("main2.kv")
+        return Builder.load_file("main.kv")
 # ---------------------------------------------------------------------------------------------------------------------------------------------
     theme_cls = ThemeManager()
     version = StringProperty()
@@ -646,6 +648,7 @@ class MainApp(App):
     ThrottlePos_Image = StringProperty()
     Load_Image = StringProperty()
     TimingAdv_Image = StringProperty()
+    RPM_Image = StringProperty()
 
     RPMGaugeMax = OBD.gauge.persegment.RPM_max
     SpeedGaugeMax = OBD.gauge.persegment.Speed_max
@@ -797,6 +800,8 @@ class MainApp(App):
             self.Load_Image = str('data/gauges/normal/s2k_'+(str(int(round(self.Load/OBD.gauge.persegment.Load))))+'.png')
         if OBD.enable.TimingAdv and 0 <= int(round(self.TimingAdv/OBD.gauge.persegment.TimingAdv)) <= 32:
             self.TimingAdv_Image = str('data/gauges/normal/s2k_'+(str(int(round(self.TimingAdv/OBD.gauge.persegment.TimingAdv))))+'.png')
+        if OBD.enable.RPM and 0 <= int(round(self.RPM/OBD.gauge.persegment.RPM)) <= 32:
+            self.RPM_Image = str('data/gauges/normal/s2k_'+(str(int(round(self.RPM/OBD.gauge.persegment.RPM))))+'.png')
 
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
