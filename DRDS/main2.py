@@ -545,63 +545,13 @@ if developermode == 0:
     if autobrightness == 2:  # start on dim every time
         sys().setbrightness(15)
       
-class YourAppClass(App):
-    def build(self):
-        # Your other setup code
-        self.setup_rpm_gauge()
-
-    def setup_rpm_gauge(self):
-        rpm_gauge = self.root.ids.sm.get_screen('gauge4').ids.rpm_gauge
-        for i in range(9):
-            color = (0.2, 0.2, 0.2, 1) if i < 4 else (0.2, 0.2, 0, 1) if i < 7 else (0.2, 0, 0, 1)
-            label = Label(size_hint_x=None, width=50, background_color=color)
-            rpm_gauge.add_widget(label)
-
-    def update_rpm_gauge(self, current_rpm):
-        rpm_gauge = self.root.ids.sm.get_screen('gauge4').ids.rpm_gauge
-        thresholds = [5900, 6000, 6100]  # Define thresholds for changing colors
-        colors = [(0, 1, 0, 1), (1, 1, 0, 1), (1, 0, 0, 1)]  # Green, Yellow, Red
-        for index, label in enumerate(rpm_gauge.children[::-1]):  # Reverse to match left-to-right order
-            active = False
-            if index < 4:
-                active = current_rpm >= 5900
-            elif index < 7:
-                active = current_rpm >= 6000
-            else:
-                active = current_rpm >= 6100
-            base_color = colors[0] if index < 4 else colors[1] if index < 7 else colors[2]
-            dark_color = (0.2, 0.2, 0.2, 1) if index < 4 else (0.2, 0.2, 0, 1) if index < 7 else (0.2, 0, 0, 1)
-            label.background_color = base_color if active else dark_color
-
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Define Kivy Classes
 #MAIN SCREEN CLASSES
-#class Gauge1Screen(Screen):
-#    pass
-class Gauge2Screen(Screen):
-    pass
-#class Gauge3Screen(Screen):
-#    pass
+
 class Gauge4Screen(Screen):
     pass
-#class MaxScreen(Screen):
-#    pass
-#class InfoScreen(Screen):
-#    def on_enter(self):
-#        sys.getsysteminfo = True
-#    def on_pre_leave(self):
-#        sys.getsysteminfo = False
-#class SettingsScreen(Screen):
-#    pass
-#class TempSettingsScreen(Screen):
-#    pass
-#class FuelSettingsScreen(Screen):
-#    pass
-#class SpeedSettingsScreen(Screen):
-#    pass
-#class DTCScreen(Screen):
-#    pass
-
+  
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Main App Class
 class MainApp(App):
