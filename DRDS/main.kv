@@ -43,21 +43,19 @@ AnchorLayout:
                     pos: -100, -200  # Close to RPM label
                     font_name: GaugeFont
 
-                # RPM Gauge made of rectangles
-                BoxLayout:
-                    id: rpm_lights
-                    orientation: 'horizontal'
+                GridLayout:
+                    id: rpm_gauge
+                    rows: 1
                     size_hint: None, None
                     size: 500, 50
-                    pos: 100, 250
+                    pos: 150, 250  # Adjust to position correctly
                     spacing: 5
-                    canvas.before:
-                        Color:
-                            rgba: 0, 0, 0, 1  # Black background behind lights
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                # Dynamically add rectangles here in Python based on RPM values
+
+                    # Initial dark rectangles (always visible)
+                    on_parent:
+                        for i in range(9):
+                            color = (0.2, 0.2, 0.2, 1) if i < 4 else (0.2, 0.2, 0, 1) if i < 7 else (0.2, 0, 0, 1)
+                            self.add_widget(Label(size_hint_x=None, width=50, background_color=color, color=color))
                 
                 # Gear Display in the Middle
                 Label:
