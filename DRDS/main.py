@@ -43,7 +43,7 @@ from kivy.config import Config
 Config.set('graphics', 'width', '800')
 Config.set('graphics', 'height', '480')
 from kivy.core.window import Window
-Window.size = (800, 480)
+Window.size = (1024, 600)
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Inital Setup functions
