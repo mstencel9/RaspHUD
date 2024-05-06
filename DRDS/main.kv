@@ -9,35 +9,6 @@
 #:set GaugeFont "data/fonts/Eurostile LT Std Medium.ttf"
 #:set ButtonFont "data/fonts/Eurostile LT Std Extended 2.ttf"
 
-<RectangleLabel@Label>:
-    color: (0, 0, 0, 1)  # Text color, black
-    canvas.before:
-        Color:
-            rgba: self.background_color
-        Rectangle:
-            pos: self.pos
-            size: self.size
-
-<RPMGauge@BoxLayout>:
-    size_hint: None, None
-    width: self.minimum_width  # Ensure the BoxLayout is only as wide as needed
-    height: 50
-    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-    spacing: 5
-    RectangleLabel:
-        size_hint: None, None
-        width: 50
-        background_color: (0, 1, 0, 1) if app.RPM >= 5900 else (0.2, 0.2, 0.2, 1)
-    RectangleLabel:
-        size_hint: None, None
-        width: 50
-        background_color: (0, 1, 0, 1) if app.RPM >= 6000 else (0.2, 0.2, 0.2, 1)
-    RectangleLabel:
-        size_hint: None, None
-        width: 50
-        background_color: (1, 1, 0, 1) if app.RPM >= 6100 else (0.2, 0.2, 0, 1)
-    # Continue adding RectangleLabels for each gauge light
-
 AnchorLayout:
     ScreenManager:
         id: sm
@@ -46,10 +17,7 @@ AnchorLayout:
             FloatLayout:
                 Image:
                     source: "data/wallpapers/black.png"
-                
-                # RPM Gauge instance
-                RPMGauge:
-                
+
                 # MPH and RPM Information
                 Label:
                     text: str(math.floor(app.Speed))
@@ -80,4 +48,15 @@ AnchorLayout:
                     height: 50
                     width: 100
                     pos: 350, 140  # Positioned centrally
+                    font_name: GaugeFont
+
+                #Shift warning at the top
+                Label:
+                    text: 
+                        'SHIFT' if app.RPM > 5900 else None
+                    font_size: 100
+                    size_hint: None, None
+                    height: 50
+                    width: 100
+                    pos: 350, 50  # Positioned centrally
                     font_name: GaugeFont
