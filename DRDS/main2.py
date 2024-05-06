@@ -583,7 +583,7 @@ class MainApp(App):
     def build(self):
         Clock.schedule_interval(self.updatevariables, .1)
         Clock.schedule_interval(self.updateOBDdata, .01)
-        return Builder.load_file("main.kv")
+        return Builder.load_file("main2.kv")
 # ---------------------------------------------------------------------------------------------------------------------------------------------
     theme_cls = ThemeManager()
     version = StringProperty()
