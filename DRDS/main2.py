@@ -552,8 +552,8 @@ class Gauge2Screen(Screen):
     pass
 #class Gauge3Screen(Screen):
 #    pass
-#class Gauge4Screen(Screen):
-#    pass
+class Gauge4Screen(Screen):
+    pass
 #class MaxScreen(Screen):
 #    pass
 #class InfoScreen(Screen):
