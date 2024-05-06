@@ -24,7 +24,7 @@ AnchorLayout:
                 # MPH and RPM Information
                 Label:
                     text: str(math.floor(app.Speed)) if app.SpeedUnit == "MPH" \
-                        else str(math.floor(app.Speed / 0.6213711922))
+                    else str(math.floor(app.Speed / 0.6213711922))
                     font_size: 80
                     pos: 20, 170  # Adjusted to be on the left
                     font_name: GaugeFont
