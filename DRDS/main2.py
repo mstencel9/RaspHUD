@@ -329,7 +329,7 @@ class OBD:
             ThrottlePos = round(ThrottlePos_max / 32.0, 2)
             Load = round(Load_max / 32.0, 2)
             TimingAdv = round(TimingAdv_max / 32.0, 2)
-            RPM = TimingAdv = round(TimingAdv_max / 32.0, 2)
+            RPM = round(TimingAdv_max / 32.0, 2)
 
     # Thread functions - to be called later
     # These will run in the background and will not block the GUI
