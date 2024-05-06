@@ -15,11 +15,6 @@ AnchorLayout:
         Gauge4Screen:
             name: "gauge4"
             FloatLayout:
-                app.OBDOFF()
-                app.OBDEnabler("Speed",1)
-                app.OBDEnabler("RPM",1)
-                app.OBDEnabler("Gear",1)
-                app.save()
                 Image:
                     source: "data/wallpapers/black.png"
 
@@ -65,3 +60,31 @@ AnchorLayout:
   			height: 100
   			pos: 350, 300  
     			font_name: GaugeFont
+
+AnchorLayout: 
+    FloatLayout:
+	Button:
+            id: dock_gauge4
+            background_normal: 'data/elements/Dock/DockPill.png'
+            background_down: 'data/elements/Dock/DockPill_pressed.png'
+            opacity: 1
+            pos: 371, Dock_y0
+            size_hint: None, None
+            height: 70
+            width: 101
+            on_press:
+                sm.transition.direction = 'left'
+                sm.current = 'gauge4'
+                app.OBDOFF()
+                app.OBDEnabler("Speed",1)
+                app.OBDEnabler("RPM",1)
+                app.OBDEnabler("Gear",1)
+                app.save()
+            Label:
+                text: "4"
+                text_size: 101, 70
+                valign: 'middle'
+                halign: 'center'
+                font_size: 28
+                font_name: ButtonFont
+                pos: self.parent.center_x - 50, self.parent.center_y - 53
