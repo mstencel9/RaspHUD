@@ -17,9 +17,6 @@ import math
 
 from kivy.lang import Builder
 
-class Gauge4Screen(Screen):
-    pass
-
 # Program Info
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 globalversion = "V1.2.2"
