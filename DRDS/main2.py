@@ -547,7 +547,7 @@ if developermode == 0:
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Define Kivy Classes
 #MAIN SCREEN CLASSES
-#class Gauge1Screen(Screen):
+#class Gauge1Screen(Screen): blah blah
 #    pass
 #class Gauge2Screen(Screen):
 #    pass
