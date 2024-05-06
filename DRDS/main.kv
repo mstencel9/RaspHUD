@@ -75,7 +75,6 @@ AnchorLayout:
 	            height: 70
 	            width: 101
 	            on_press:
-	                sm.transition.direction = 'left'
 	                sm.current = 'gauge4'
 	                app.OBDOFF()
 	                app.OBDEnabler("Speed",1)
@@ -83,10 +82,9 @@ AnchorLayout:
 	                app.OBDEnabler("Gear",1)
 	                app.save()
 	            Label:
-	                text: "4"
+	                text: "start"
 	                text_size: 101, 70
-	                valign: 'middle'
-	                halign: 'center'
+	                pos: -200, -400  
 	                font_size: 28
 	                font_name: ButtonFont
 	                pos: self.parent.center_x - 50, self.parent.center_y - 53
