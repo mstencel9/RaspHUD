@@ -18,7 +18,7 @@ AnchorLayout:
                 Image:
                     source: "data/wallpapers/black.png"
 
-                # MPH and RPM Information
+                # Existing labels for speed and RPM
                 Label:
                     text: str(math.floor(app.Speed))
                     font_size: 80
@@ -50,13 +50,13 @@ AnchorLayout:
                     pos: 350, 140  # Positioned centrally
                     font_name: GaugeFont
 
-                #Shift warning at the top
+                # Shift Warning Label
                 Label:
-                    text: 
-                        'SHIFT' if app.RPM > 5900 else None
-                    font_size: 100
+                    text: "SHIFT NOW!" if app.RPM >= 5900 else "OK"
+                    font_size: 50
+                    color: [1, 0, 0, 1] if app.RPM >= 5900 else [0, 0, 0, 0]  # Red text when to shift, invisible otherwise
                     size_hint: None, None
+                    width: 200
                     height: 50
-                    width: 100
-                    pos: 350, 50  # Positioned centrally
+                    pos: 350, 200  # Adjust positioning as needed
                     font_name: GaugeFont
