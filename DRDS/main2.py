@@ -14,6 +14,8 @@ import socket
 import time
 import os
 import math
+from kivy.graphics import Color, Rectangle
+from kivy.uix.widget import Widget
 
 # Program Info
 # ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -543,6 +545,25 @@ if developermode == 0:
     if autobrightness == 2:  # start on dim every time
         sys().setbrightness(15)
 
+
+rpm_thresholds = [5900, 6000, 6100]  # Simplified example
+
+class RPMWidget(Widget):
+    def update_rpm(self, rpm):
+        with self.canvas:
+            self.canvas.clear()
+            # Set color based on RPM
+            for i in range(9):
+                if rpm > rpm_thresholds[min(i, len(rpm_thresholds)-1)]:
+                    if i < 4:
+                        Color(0, 1, 0, 1)  # Green
+                    elif i < 7:
+                        Color(1, 1, 0, 1)  # Yellow
+                    else:
+                        Color(1, 0, 0, 1)  # Red
+                else:
+                    Color(0.2, 0.2, 0.2, 1)  # Darker color for 'off'
+                Rectangle(pos=(i*55, 0), size=(50, 50))  # Adjust position and size as needed
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Define Kivy Classes
 #MAIN SCREEN CLASSES
