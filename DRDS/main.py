@@ -19,7 +19,7 @@ import math
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 globalversion = "V1.2.2"
 # 10/8/2020
-# Created by Joel Zeller
+# Created by Mason Stencel and Liam Hartman
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Configuration Variables
@@ -45,7 +45,7 @@ Window.size = (800, 480)
 # Inital Setup functions
 try:
     import RPi.GPIO as GPIO
-    onPi = 1  # If GPIO is successfully imported, we can assume we are running on a Raspberry Pi
+    onPi = 1  # If GPIO is successfully imporgated, we can assume we are running on a Raspberry Pi
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     if externalshutdown == 1:

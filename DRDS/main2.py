@@ -20,7 +20,7 @@ import sys
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 globalversion = "V1.2.2"
 # 10/8/2020
-# Created by Joel Zeller
+# Created by Mason Stencel Liam Hartman
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Configuration Variables
@@ -545,12 +545,12 @@ if developermode == 0:
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 # Define Kivy Classes
 #MAIN SCREEN CLASSES
-class Gauge1Screen(Screen):
-    pass
-class Gauge2Screen(Screen):
-    pass
-class Gauge3Screen(Screen):
-    pass
+#class Gauge1Screen(Screen):
+#    pass
+#class Gauge2Screen(Screen):
+#    pass
+#class Gauge3Screen(Screen):
+#    pass
 class Gauge4Screen(Screen):
     pass
 class MaxScreen(Screen):
