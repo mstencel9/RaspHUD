@@ -15,11 +15,6 @@ import time
 import os
 import math
 
-from kivy.lang import Builder
-
-class Gauge4Screen(Screen):
-    pass
-
 # Program Info
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 globalversion = "V1.2.2"
@@ -553,12 +548,12 @@ if developermode == 0:
 #MAIN SCREEN CLASSES
 #class Gauge1Screen(Screen):
 #    pass
-#class Gauge2Screen(Screen):
-#    pass
+class Gauge2Screen(Screen):
+    pass
 #class Gauge3Screen(Screen):
 #    pass
-class Gauge4Screen(Screen):
-    pass
+#class Gauge4Screen(Screen):
+#    pass
 #class MaxScreen(Screen):
 #    pass
 #class InfoScreen(Screen):
@@ -583,7 +578,6 @@ class MainApp(App):
     def build(self):
         Clock.schedule_interval(self.updatevariables, .1)
         Clock.schedule_interval(self.updateOBDdata, .01)
-        return Builder.load_file("main2.kv")
 # ---------------------------------------------------------------------------------------------------------------------------------------------
     theme_cls = ThemeManager()
     version = StringProperty()
