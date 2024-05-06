@@ -20,67 +20,60 @@ AnchorLayout:
             FloatLayout:
                 Image:
                     source: "data/wallpapers/black.png"
+
+                # MPH and RPM Information
                 Label:
-                    text:
-                        str(math.floor(app.Speed)) if app.SpeedUnit == "MPH" \
-                        else str(math.floor(app.Speed / 0.6213711922))
-                    text_size: 300, 100
-                    halign: 'right'
-                    valign: 'middle'
+                    text: str(math.floor(app.Speed))
                     font_size: 80
-                    pos: -270, 170
-                    font_name: GaugeFont
-                Label:
-                    text: str(app.RPM)
-                    text_size: 300, 100
-                    halign: 'right'
-                    valign: 'middle'
-                    font_size: 80
-                    pos: -270, 60
+                    pos: 150, -183  # Adjusted to be on the left
                     font_name: GaugeFont
                 Label:
                     text: app.SpeedUnit
-                    text_size: 300, 100
-                    halign: 'right'
-                    valign: 'middle'
                     font_size: 15
-                    pos: -230, 153
+                    pos: 200, -200  # Close to MPH label
+                    font_name: GaugeFont
+                Label:
+                    text: str(app.RPM)
+                    font_size: 80
+                    pos: -150, -183  # Below MPH information
                     font_name: GaugeFont
                 Label:
                     text: "RPM"
-                    text_size: 300, 100
-                    halign: 'right'
-                    valign: 'middle'
                     font_size: 15
-                    pos: -230, 43
+                    pos: -100, -200  # Close to RPM label
                     font_name: GaugeFont
+
+                # Gear Display in the Middle
                 Label:
                     text: app.currentgear
                     font_size: 200
                     size_hint: None, None
                     height: 150
                     width: 250
-                    halign: 'center'
-                    valign: 'middle'
-                    font_hinting: None
-                    pos: 550, 262
+                    pos: 50, 240  # Positioned centrally
                     font_name: GaugeFont
+
+                # RPM Gauge and Label on the Right
                 Image:
                     source: "data/gauges/S2KOutline_DoubleWhite.png"
-                   # opacity: 1 if app.RPM_Enable else 0
-                    pos: 550, 270  # Adjust position as needed
+                    pos: 440, 350  # Positioned on the right
                     size_hint: None, None
                     height: 150
                     width: 250
 
-                # RPM Gauge Value Label
+                Image:
+                    source: str(app.RPM_Image)
+                    opacity: 1
+                    pos: 440, 350
+                    size_hint: None, None
+                    height: 150
+                    width: 250
+
                 Label:
                     text: str(app.RPM) + " RPM"
                     font_size: 70
                     size_hint: None, None
                     height: 150
                     width: 250
-                   # halign: 'center'
-                   #  valign: 'middle'
-                    pos: 700, 500  # Adjust position as needed
+                    pos: 440, 200  # Directly beneath the RPM gauge image
                     font_name: GaugeFont

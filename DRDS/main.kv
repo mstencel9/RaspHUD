@@ -44,27 +44,46 @@ AnchorLayout:
                     font_name: GaugeFont
 
                 # Gear Display in the Middle
+              #  Label:
+              #      text: app.currentgear
+              #      font_size: 200
+              #      size_hint: None, None
+              #      height: 150
+              #      width: 250
+              #      pos: 50, 240  # Positioned centrally
+              #      font_name: GaugeFont
+
+                # RPM Gauge and Label on the Right
+                Image:
+                    source: "data/gauges/S2KOutline_DoubleWhite.png"
+                    pos: 250, 350  # Positioned on the right
+                    size_hint: None, None
+                    height: 150
+                    width: 250
+
+                Image:
+                    source: str(app.RPM_Image)
+                    opacity: 1
+                    pos: 250, 350
+                    size_hint: None, None
+                    height: 150
+                    width: 250
+
+                # Gear Display in the Middle
                 Label:
                     text: app.currentgear
                     font_size: 200
                     size_hint: None, None
                     height: 150
                     width: 250
-                    pos: 50, 240  # Positioned centrally
+                    pos: 0, 200  # Positioned centrally
                     font_name: GaugeFont
 
-                # RPM Gauge and Label on the Right
-                Image:
-                    source: "data/gauges/S2KOutline_DoubleWhite.png"
-                    pos: 440, 350  # Positioned on the right
-                    size_hint: None, None
-                    height: 150
-                    width: 250
-                Label:
-                    text: str(app.RPM) + " RPM"
-                    font_size: 70
-                    size_hint: None, None
-                    height: 150
-                    width: 250
-                    pos: 440, 200  # Directly beneath the RPM gauge image
-                    font_name: GaugeFont
+               #Label:
+               #    text: str(app.RPM) + " RPM"
+               #    font_size: 70
+               #    size_hint: None, None
+               #    height: 150
+               #    width: 250
+               #    pos: 440, 200  # Directly beneath the RPM gauge image
+               #    font_name: GaugeFont
