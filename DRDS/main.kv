@@ -24,29 +24,29 @@ AnchorLayout:
                 Label:
                     text: str(math.floor(app.Speed))
                     font_size: 80
-                    pos: 150, -183  # Adjusted to be on the left
+                    pos: 150, -160  # Adjusted to be on the left
                     font_name: GaugeFont
                 Label:
                     text: app.SpeedUnit
                     font_size: 15
-                    pos: 200, -200  # Close to MPH label
+                    pos: 150, -200  # Close to MPH label
                     font_name: GaugeFont
                 Label:
                     text: str(app.RPM)
                     font_size: 80
-                    pos: -150, -183  # Below MPH information
+                    pos: -150, -160  # Below MPH information
                     font_name: GaugeFont
                 Label:
                     text: "RPM"
                     font_size: 15
-                    pos: -100, -200  # Close to RPM label
+                    pos: -150, -200  # Close to RPM label
                     font_name: GaugeFont
 
                 # Shift Warning 
                 Label:
-                    text: 'OK' if len(str(app.RPM)) < 4 else ('SHIFT' if str(app.RPM)[:2] == '59' or str(app.RPM)[0] == '6' else 'READY' if str(app.RPM)[:1] == '5' else 'OK')
+                    text: 'OK' if len(str(app.RPM)) < 4 else ('SHIFT' if str(app.RPM)[:2] == '55' or str(app.RPM)[:2] == '56' or str(app.RPM)[:2] == '57' or str(app.RPM)[:2] == '58' or str(app.RPM)[:2] == '59' or str(app.RPM)[:1] == '6' else 'READY' if str(app.RPM)[:1] == '5' else 'OK')
                     font_size: 250
-                    color: [0, 1, 0, 1] if len(str(app.RPM)) < 4 else ([1, 0, 0, 1] if str(app.RPM)[:2] == '59' or str(app.RPM)[0] == '6' else [1, 1, 0, 1] if str(app.RPM)[:1] == '5' else [0, 1, 0, 1])
+                    color: [0, 1, 0, 1] if len(str(app.RPM)) < 4 else ([1, 0, 0, 1] if str(app.RPM)[:2] == '55' or str(app.RPM)[:2] == '56' or str(app.RPM)[:2] == '57' or str(app.RPM)[:2] == '58' or str(app.RPM)[:2] == '59' or str(app.RPM)[:1] == '6' else [1, 1, 0, 1] if str(app.RPM)[:1] == '5' else [0, 1, 0, 1])
                     size_hint: None, None
                     width: 300  
                     height: 100
